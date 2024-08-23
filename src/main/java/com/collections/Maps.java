@@ -34,13 +34,13 @@ public class Maps {
     }
 
     public Map<String, Integer> decrementItems(Map<String, Integer> inventory, List<String> items) {
-        for (int i = 0; i < items.size(); i++) {
-            if (inventory.containsKey(items.get(i))) {
-                inventory.put(items.get(i), inventory.get(items.get(i)) - 1);
-            if (inventory.get(items.get(i)) == 0) {
-            inventory.remove(items.get(i));}
+        for (String item : items) {
+            if (inventory.containsKey(item)) {
+                int currentValue = inventory.get(item);
+                if (currentValue > 0) {
+                    inventory.put(item, currentValue - 1);
+                }
             }
-
         }
         return inventory;
     }
